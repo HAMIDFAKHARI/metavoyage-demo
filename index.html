@@ -74,6 +74,33 @@
   <footer class="text-center py-6 text-gray-500 bg-gray-950">
     &copy; 2025 MetaVoyage. Powered by Crypto. Designed for Business.
   </footer>
+<section id="check-status" style="padding: 2em; background: #111; color: white;">
+  <h2 style="color: #9f7aea;">Check Payment Status</h2>
+  <form onsubmit="checkStatus(event)" style="margin-top: 1em;">
+    <input name="txid" placeholder="Transaction ID" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
+    <input name="company" placeholder="Company Name" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
+    <button type="submit" style="padding: 0.7em 1.5em; background: #9f7aea; color: white; border: none; border-radius: 0.5em;">
+      Check
+    </button>
+  </form>
+</section>
+
+<script>
+  async function checkStatus(event) {
+    event.preventDefault();
+    const txid = event.target.txid.value;
+    const company = event.target.company.value;
+    const res = await fetch("https://eos1papkowybxf6.m.pipedream.net", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ txid, company })
+    });
+    const result = await res.json();
+    alert(result.status === "Not Found ❌"
+      ? "Payment not found. Double-check TxID or Company."
+      : `✅ ${result.status}\\nCompany: ${result.company}\\nTxID: ${result.txid}`);
+  }
+</script>
 
 </body>
 </html>
