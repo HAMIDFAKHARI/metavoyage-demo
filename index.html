@@ -1,106 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MetaVoyage - Crypto-Powered Business Travel</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaVoyage</title>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-black to-gray-900 text-white font-sans">
+<body>
 
-  <header class="p-6 shadow-xl flex items-center justify-between bg-opacity-30 backdrop-blur-sm">
-    <h1 class="text-3xl font-bold">MetaVoyage</h1>
-    <nav class="space-x-6 text-lg">
-      <a href="#packages" class="hover:text-purple-400">Packages</a>
-      <a href="#how-it-works" class="hover:text-purple-400">How It Works</a>
-      <a href="#contact" class="hover:text-purple-400">Contact</a>
-    </nav>
-  </header>
+  <!-- Existing website content -->
 
-  <main class="text-center py-24 px-6">
-    <h2 class="text-5xl font-extrabold mb-6 text-purple-400">Crypto-Powered Business Travel</h2>
-    <p class="text-xl mb-8 max-w-2xl mx-auto">
-      Unlock premium MICE experiences in Dubai with seamless crypto payments powered by TON, TrustWallet, and more.
-    </p>
-    <a href="#contact" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 text-lg rounded-2xl shadow-md">
-      Request a Custom Package
-    </a>
-  </main>
-
-  <section id="packages" class="px-6 py-20 bg-gray-800 text-left">
-    <h3 class="text-4xl font-bold mb-10 text-purple-300">Sample Packages</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-2">Team Retreat</h4>
-        <p class="mb-4">3 nights at a 5-star hotel + Spa + Desert Safari + Crypto Payment Options</p>
-        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-xl">Book Now</button>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-2">Conference Hosting</h4>
-        <p class="mb-4">Full day conference space + AV setup + Coffee breaks + Team Dinner</p>
-        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-xl">Book Now</button>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-2">Executive Travel</h4>
-        <p class="mb-4">Private airport transfers + Luxury suite + Yacht Experience + Crypto concierge</p>
-        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-xl">Book Now</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="how-it-works" class="px-6 py-20">
-    <h3 class="text-4xl font-bold mb-10 text-purple-300">How It Works</h3>
-    <ol class="list-decimal space-y-4 max-w-3xl mx-auto text-lg">
-      <li>Choose your desired destination and package.</li>
-      <li>We customize the trip to your company's needs.</li>
-      <li>Pay securely using TON, TrustWallet, or supported crypto gateways.</li>
-      <li>Enjoy a fully managed, premium travel experience in Dubai.</li>
-    </ol>
-  </section>
-
-  <section id="contact" class="px-6 py-20 bg-gray-900">
-    <h3 class="text-4xl font-bold mb-6 text-purple-300">Let's Talk</h3>
-    <form class="max-w-2xl mx-auto space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700" />
-      <input type="email" placeholder="Business Email" class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700" />
-      <textarea placeholder="Tell us about your travel needs..." class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700" rows="4"></textarea>
-      <button type="submit" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-2xl text-lg">
-        Submit Inquiry
+  <section id="check-status" style="padding: 2em; background: #111; color: white;">
+    <h2 style="color: #9f7aea;">Check Payment Status</h2>
+    <form onsubmit="checkStatus(event)" style="margin-top: 1em;">
+      <input name="txid" placeholder="Transaction ID" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
+      <input name="company" placeholder="Company Name" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
+      <button type="submit" style="padding: 0.7em 1.5em; background: #9f7aea; color: white; border: none; border-radius: 0.5em;">
+        Check
       </button>
     </form>
   </section>
 
-  <footer class="text-center py-6 text-gray-500 bg-gray-950">
-    &copy; 2025 MetaVoyage. Powered by Crypto. Designed for Business.
-  </footer>
-<section id="check-status" style="padding: 2em; background: #111; color: white;">
-  <h2 style="color: #9f7aea;">Check Payment Status</h2>
-  <form onsubmit="checkStatus(event)" style="margin-top: 1em;">
-    <input name="txid" placeholder="Transaction ID" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
-    <input name="company" placeholder="Company Name" style="padding: 0.5em; width: 100%; margin-bottom: 1em;" />
-    <button type="submit" style="padding: 0.7em 1.5em; background: #9f7aea; color: white; border: none; border-radius: 0.5em;">
-      Check
-    </button>
-  </form>
-</section>
-
-<script>
-  async function checkStatus(event) {
-    event.preventDefault();
-    const txid = event.target.txid.value;
-    const company = event.target.company.value;
-    const res = await fetch("https://eos1papkowybxf6.m.pipedream.net", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ txid, company })
-    });
-    const result = await res.json();
-    alert(result.status === "Not Found ❌"
-      ? "Payment not found. Double-check TxID or Company."
-      : `✅ ${result.status}\\nCompany: ${result.company}\\nTxID: ${result.txid}`);
-  }
-</script>
+  <script>
+    async function checkStatus(event) {
+      event.preventDefault();
+      const txid = event.target.txid.value;
+      const company = event.target.company.value;
+      const res = await fetch("https://eos1papkowybxf6.m.pipedream.net", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ txid, company })
+      });
+      const result = await res.json();
+      alert(result.status === "Not Found ❌"
+        ? "Payment not found. Double-check TxID or Company."
+        : `✅ ${result.status}\nCompany: ${result.company}\nTxID: ${result.txid}`);
+    }
+  </script>
 
 </body>
 </html>
